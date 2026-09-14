@@ -88,6 +88,7 @@ jobs:
           name: image-${{ github.sha }}
           path: /tmp/image.tar
           retention-days: 1
+          overwrite: true
 
       - name: Trivy image scan
         uses: aquasecurity/trivy-action@v0.36.0
