@@ -69,6 +69,13 @@ curl http://localhost:8002/health
 
 Saída esperada: `{"status":"ok"}`
 
+**1.1. Verifique a Prontidão (Readiness Check):**
+```bash
+curl http://localhost:8002/ready
+```
+
+Saída esperada: `{"service":"flag-service","status":"ready"}`
+
 **2. Tente Acessar um Endpoint Protegido (Sem Chave):**
 ```bash
 curl http://localhost:8002/flags
