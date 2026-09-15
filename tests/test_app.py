@@ -27,6 +27,15 @@ def test_health(monkeypatch):
     assert response.get_json() == {"status": "ok"}
 
 
+def test_ready(monkeypatch):
+    client = load_app(monkeypatch).test_client()
+
+    response = client.get("/ready")
+
+    assert response.status_code == 200
+    assert response.get_json() == {"service": "flag-service", "status": "ready"}
+
+
 def test_flags_requires_authorization(monkeypatch):
     client = load_app(monkeypatch).test_client()
 

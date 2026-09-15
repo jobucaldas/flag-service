@@ -74,6 +74,11 @@ def health():
     return jsonify({"status": "ok"})
 
 
+@app.route('/ready')
+def ready():
+    return jsonify({"service": "flag-service", "status": "ready"})
+
+
 @app.route('/flags', methods=['POST'])
 @require_auth
 def create_flag():
