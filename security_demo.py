@@ -1,5 +1,5 @@
 import subprocess
 
 
-def unsafe_command(command):
-    return subprocess.run(command, shell=True, check=False)
+def safe_command(command_args):
+    return subprocess.run(command_args, check=False)
