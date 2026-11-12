@@ -21,5 +21,5 @@ USER flag-service
 COPY --from=builder /venv /venv
 ENV PATH="/venv/bin:$PATH"
 
-COPY --chown=flag-service app.py .
+COPY --chown=flag-service app.py gunicorn.conf.py ./
 CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT:-8002} app:app"]
